@@ -77,8 +77,8 @@ FETCH_PIDS:
 			std::string strLogFile;
 			std::string strPName;
 			int nThreadCount = 0;
-			int nVmSize = 0;
-			int nVmRSS = 0;
+			long nVmSize = 0;
+			long nVmRSS = 0;
 			int nPID = 0;
 
 			// 统计文件名
@@ -90,10 +90,10 @@ FETCH_PIDS:
 			strLogFile = PmonCmdline::GetInstance()->GetLogDir() + "/" + strLogFile;
 
 			// 消耗虚拟内存大小
-			nVmSize = atoi(status["VmSize:"].c_str()) * 1024;
+			nVmSize = atol(status["VmSize:"].c_str()) * 1024;
 
 			// 消耗物理内存大小
-			nVmRSS = atoi(status["VmRSS:"].c_str()) * 1024;
+			nVmRSS = atol(status["VmRSS:"].c_str()) * 1024;
 
 			// 线程数目
 			nThreadCount = atoi(status["Threads:"].c_str());
@@ -103,7 +103,7 @@ FETCH_PIDS:
 
 			// 打印
 			//                                   时间 线程  物理内存     虚拟内存     FDS PID PNAME
-			PrintLog(strLogFile.c_str(), "%10d  %-20s %5d  %10d (%12s) %10d (%12s) %5d %7d %-32s"
+			PrintLog(strLogFile.c_str(), "%10d  %-20s %5d  %10lld (%12s) %10lld (%12s) %5d %7d %-32s"
 			         , index
 			         , LWPR::Utility::DateTimeNow().c_str()
 			         , nThreadCount

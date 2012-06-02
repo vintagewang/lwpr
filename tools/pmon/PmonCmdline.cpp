@@ -45,7 +45,7 @@ int PmonCmdline::GetStatisticsInterval()
 {
 	std::vector< std::string > args;
 
-	if(GetArgumentsByOption('d', args))
+	if(GetArgumentsByOption('i', args))
 	{
 		return atoi(args[0].c_str());
 	}

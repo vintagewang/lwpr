@@ -12,6 +12,9 @@ TARGETS_DIR  = \
 		$(TOPDIR)/tools/pmon \
 
 all::
+	@-mkdir $(TOPDIR)/include
+	@-mkdir $(TOPDIR)/bin
+	@-mkdir $(TOPDIR)/lib
 	@-mkdir $(TOPDIR)/include/lwpr
 	@-cp $(TOPDIR)/src/*.h $(TOPDIR)/include/lwpr/
 	@-cp $(TOPDIR)/src/lwpr.h $(TOPDIR)/include/

@@ -1,6 +1,6 @@
 ## OVERVIEW
 
-It's a Light Weight Portable Runtime library for c++.
+It's a light weight portable runtime library for c++.
 
 ## LICENSE
 
